@@ -62,12 +62,14 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_PHOTO}",
-        caption=f"""✨ **مرحبا عزيزي » {message.from_user.mention()} !**\n
-💭 **᥀︙انا بوت استطيع تشغيل الاغاني والموسيقى في المكالمات  الصوتية! 
-
-᥀︙ لمعرفة اوامر هذا البوت اضغط على » اوامر التشغيل!
-
-᥀︙ لمعرفة طريقة تشغيل هذا البوت اضغط على » طريقة التشغيل!
+        caption=f"""✨ **سڵاو ئازیزم » {message.from_user.mention()} !**\n
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
+‣ من بۆتێکی سادەم بۆ پاراستنی گروپەکەت و پەخشکردنی کلیپی دەنگی لە پەیوەندییەکدا.
+‣ دەتوانم کلیپی دەنگی لە کاتی پەیوەندیدا لێبدەم.
+‣ دەتوانم هەر بەکارهێنەرێک بلۆک بکەم و بێدەنگ بکەم.
+‣ باشترین بۆت لە ڕووی تایبەتمەندییەوە.
+‣ لەسەر بنەمای کتێبخانەی Telethon دروستکراوە بۆیە بۆتەکە خێرایە!
+➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -76,20 +78,20 @@ async def start_(client: Client, message: Message):
                     InlineKeyboardButton("", callback_data="cbhowtouse")
                     ],
                 [
-                    InlineKeyboardButton("‹ اوامر التشغيل › ", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ المطور", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("‹ فەرمانەکان › ", callback_data="cbcmds"),
+                    InlineKeyboardButton("خاوه ن بۆت", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "‹ كروب الدعم › ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "‹  گرووپی پشتیوانی › ", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "‹ قناة السورس ›", url=f"https://t.me/EITHON1"
+                        "‹ کەناڵی سەرچاوە ›", url=f"https://t.me/EITHON1"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "اضـف البـوت لمجمـوعتـك ✅",
+                        "بۆتەکە زیاد بکە بۆ گروپەکەت",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
                     )
                 ],
@@ -114,13 +116,13 @@ async def start(client: Client, message: Message):
                 ),
             ],
             [
-                InlineKeyboardButton("♡اضف البوت الى مجموعتك♡", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+                InlineKeyboardButton("بۆتەکە زیاد بکە بۆ گروپەکەت", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
             ]
          ]
      )
   )
 
-@Client.on_message(command(["لمطور", "المطور"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["خاوه ن بۆت", "خاوه ن بۆت"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{DEV_PHOTO}",
@@ -136,19 +138,19 @@ async def help(client: Client, message: Message):
                 ),
             ],
             [
-                InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+                InlineKeyboardButton("بۆتەکە زیاد بکە بۆ گروپەکەت", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
             ]
          ]
      )
   )
 
-@Client.on_message(command(["جلب التوكن", f"لب_التوكن", "hadow"]) & filters.private & ~filters.edited)
+@Client.on_message(command(["هێنانی نیشانەکان", f"لب_التوكن", "hadow"]) & filters.private & ~filters.edited)
 @sudo_users_only
 async def shadow(c: Client, message: Message):
     start = time()
-    m_reply = await message.reply_text("انتظر من فضلك...")
+    m_reply = await message.reply_text("تكایه‌ چاوه‌ڕێبه‌...")
     BOT_TOKEN = time() - start
-    await m_reply.edit_text(f"**تم جلب التوكن**\n`{BOT_TOKEN}`")
+    await m_reply.edit_text(f"**تۆکنەکە وەرگیراوەتەوە**\n`{BOT_TOKEN}`")
 
 @Client.on_message(command(["ping", f"بنك"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
@@ -198,8 +200,8 @@ async def new_chat(c: Client, m: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("‹ قناة البوت ›", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                            InlineKeyboardButton("‹ كروب الدعم ›", url=f"https://t.me/{GROUP_SUPPORT}")
+                            InlineKeyboardButton("‹ که ناڵی بۆت ›", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                            InlineKeyboardButton("‹ گرووپ بشتگیری ›", url=f"https://t.me/{GROUP_SUPPORT}")
                         ],
                         [
                             InlineKeyboardButton(
@@ -207,7 +209,7 @@ async def new_chat(c: Client, m: Message):
                         ],
                         [
                             InlineKeyboardButton(
-                        "♡اضـف الـبـوت لـمـجـمـوعـتـك♡",
+                        "بۆتەکە زیاد بکە بۆ گروپەکەت",
                         url=f'https://t.me/{BOT_USERNAME}?startgroup=true'),
                         ],
                     ]
