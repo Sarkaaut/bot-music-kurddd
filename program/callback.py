@@ -84,7 +84,7 @@ async def cbcmds(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""» **کلیک لەسەر ئەو دوگمەیە بکە کە دەتەوێت داواکارییەکانی هەر پۆلێکیان ببینیت !**
 
- @{}""",
+ """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
