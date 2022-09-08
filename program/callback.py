@@ -112,7 +112,7 @@ async def cbbasic(_, query: CallbackQuery):
 » /playlist 「 پلەی لیست دەردەکەوێت」
 » /end「بۆ تەواوکردنی مۆسیقا/ڤیدیۆ لە کۆلاج」
 » /song +「ناو داگرتنی دەنگ لە youtube」
-»/vsong +「ناو ڤیدیۆ لە youtube دابەزێنە」
+» /vsong +「ناو ڤیدیۆ لە youtube دابەزێنە」
 » /skip「 بۆ پەڕینەوە بۆ گۆرانی دواتر 」
 » /ping 「دۆخی بۆت پیشان بدە」
 » /uptime 「 بۆ پیشاندانی کاتی کارکردنی بۆتەکە」
@@ -133,13 +133,13 @@ async def cbadmin(_, query: CallbackQuery):
 
 » /pause 「وەستاندنی پەخشکردن」
 » /resume 「دەستپێکردنەوەی پەخشکردن」
-» /stop「بۆ کوژانەوە」
+» /stop 「بۆ کوژانەوە」
 » /vmute 「بۆ بێدەنکردنی بۆتەکە」
 » /vunmute 「بۆ لابردنی بێدەنگی بۆتەکە」
 » /volume 「رێکخستنی قه باره ی ده نگ」
-» /reload「بۆ نوێکردنەوەی بۆتەکە و لیستی ئەدمینەکان」
-» /userbotjoin「بۆ بانگهێشتکردنی ئاکاونتی یارمەتیدەر」
-» /userbotleave「بۆ دەرکردنی ئەکاونتی یارمەتیدەر」
+» /reload 「بۆ نوێکردنەوەی بۆتەکە و لیستی ئەدمینەکان」
+» /userbotjoin 「بۆ بانگهێشتکردنی ئاکاونتی یارمەتیدەر」
+» /userbotleave 「بۆ دەرکردنی ئەکاونتی یارمەتیدەر」
 """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbcmds")]]
