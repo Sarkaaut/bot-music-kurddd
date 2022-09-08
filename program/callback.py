@@ -17,14 +17,14 @@ from config import (
 
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
-    await query.answer("ماڵپەڕی سەرەکی")
+    await query.answer("الصفحه الرئيسيه")
     await query.edit_message_text(
-        f"""👋 **سڵاو ئازیزم »「 [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 」!**\n
-**᥀︙ من بۆتێکم کە دەتوانم لە پەیوەندی دەنگیدا گۆرانی و مۆسیقا لێبدەم!
+        f"""✨ **مرحبا عزيزي »「 [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 」!**\n
+💭 **᥀︙انا بوت استطيع تشغيل الاغاني والموسيقى في المكالمات  الصوتية! 
 
-᥀︙ بۆ زانینی فەرمانەکانی ئەم بۆتە، کلیک لەسەر ‹فەرمانە بنەڕەتییەکان›!
+᥀︙ لمعرفة اوامر هذا البوت اضغط على » ‹الاوامر الاساسية›!
 
-᥀︙ بۆ زانینی چۆنیەتی کارپێکردنی ئەم بۆتە، کلیک لەسەر شێوازی ‹کارپێکردنی بکە›!
+᥀︙ لمعرفة طريقة تشغيل هذا البوت اضغط على » طريقة التشغيل!
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -32,20 +32,20 @@ async def cbstart(_, query: CallbackQuery):
                     InlineKeyboardButton("", callback_data="cbhowtouse")
                     ],
                 [
-                    InlineKeyboardButton("‹ کارپێکردن › ", callback_data="cbcmds"),
-                    InlineKeyboardButton("خاوه ن بۆت", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("‹ اوامر التشغيل › ", callback_data="cbcmds"),
+                    InlineKeyboardButton("❤️ المطور", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "‹ گرووپ پشتگیری ›", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "‹ كروب الدعم ›", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "‹ که ناڵی بۆت ›", url=f"https://t.me/EITHON1"
+                        "‹ قناة السورس ›", url=f"https://t.me/EITHON1"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "بۆتەکە زیاد بکە بۆ گروپەکەت",
+                        "ضيـف البـوت لمجمـوعتـك ✅",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
                     )
                 ],
@@ -57,43 +57,44 @@ async def cbstart(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
-    await query.answer("شیوازی به کارهێنان")
+    await query.answer("طريقة الاستخدام")
     await query.edit_message_text(
-        f""" ڕێنمایی بنەڕەتی بۆ بەکارهێنانی ئەم بۆتە:
+        f""" الدليل الأساسي لاستخدام هذا البوت:
 
- 1 ↤ سەرەتا من زیاد بکە بۆ گروپەکەت
- 2 ↤ دواتر وەک ئەدمین بەرزم بکەرەوە و هەموو دەسەڵاتەکانت پێ بدە جگە لە دۆخی دزێو
- 3 ↤ دوای بەرزکردنەوەی من /reload گرووپ بنووسە بۆ نوێکردنەوەی داتای ئەدمینەکان
- 4 ↤ زیاد @{ASSISTANT_NAME} بکە بۆ گروپەکەت یان بانگهێشتی ئەژمێری یارمەتیدەر بنووسە
+ 1 ↤ أولاً ، أضفني إلى مجموعتك
+ 2 ↤ بعد ذلك ، قم بترقيتي كمشرف ومنح جميع الصلاحيات باستثناء الوضع الخفي
+ 3 ↤ بعد ترقيتي ، اكتب /reload مجموعة لتحديث بيانات المشرفين
+ 4 ↤ أضف @{ASSISTANT_NAME} إلى مجموعتك أو اكتب انضم لدعوة حساب المساعد
  5 ↤ قم بتشغيل المكالمة  أولاً قبل البدء في تشغيل الفيديو / الموسيقى
- 6 ↤ هەندێک جار دووبارە بارکردنەوەی بۆتەکە بە فرمانی /reload دەتوانێت یارمەتیت بدات بۆ چارەسەرکردنی هەندێک کێشە
- 📌 ئەگەر بۆتەکە بەشداری پەیوەندییەکە نەکرد، دڵنیابە پەیوەندییەکە پێشتر چالاکە، یان /userbotleave بنووسە و پاشان دووبارە /userbotjoin بنووسە
+ 6 ↤ في بعض الأحيان ، يمكن أن تساعدك إعادة تحميل البوت باستخدام الأمر /reload في إصلاح بعض المشكلات
+ 📌 إذا لم ينضم البوت إلى المكالمة ، فتأكد من تشغيل المكالمة  بالفعل ، أو اكتب /userbotleave ثم اكتب /userbotjoin مرة أخرى
 
-💡 ئەگەر پرسیارتان هەیە دەربارەی ئەم بۆتە ئەتوانن لە ڕێگەی گروپی پشتگیری منەوە لێرە پێمان بڵێن ↤ @{GROUP_SUPPORT
+ 💡 إذا كانت لديك أسئلة  حول هذا البوت ، فيمكنك إخبارنا منن خلال قروب الدعم الخاصة بي هنا ↤ @{GROUP_SUPPORT}
 
+⚡ قناة البوت @{UPDATES_CHANNEL}
 """,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbstart")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbstart")]]
         ),
     )
 
 
 @Client.on_callback_query(filters.regex("cbcmds"))
 async def cbcmds(_, query: CallbackQuery):
-    await query.answer("لیستی فه رمانه کان")
+    await query.answer("قائمة الاوامر")
     await query.edit_message_text(
-        f"""» **کلیک لەسەر ئەو دوگمەیە بکە کە دەتەوێت داواکارییەکانی هەر پۆلێکیان ببینیت !**
+        f"""» **قم بالضغط علي الزر الذي تريده لمعرفه الاوامر لكل فئه منهم !**
 
- """,
+⚡ قناة البوت @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👷🏻 فەرمانەکانی ئادمین", callback_data="cbadmin"),
-                    InlineKeyboardButton("🧙🏻 فەرمانەکانی گەشەپێدەر", callback_data="cbsudo"),
+                    InlineKeyboardButton("👷🏻 اوامر الادمنيه", callback_data="cbadmin"),
+                    InlineKeyboardButton("🧙🏻 اوامر المطور", callback_data="cbsudo"),
                 ],[
-                    InlineKeyboardButton("📚 فەرمانە بنەڕەتییەکان", callback_data="cbbasic")
+                    InlineKeyboardButton("📚 اوامر اساسيه", callback_data="cbbasic")
                 ],[
-                    InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbstart")
+                    InlineKeyboardButton("🔙 رجوع", callback_data="cbstart")
                 ],
             ]
         ),
@@ -102,24 +103,24 @@ async def cbcmds(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
-    await query.answer("فەرمانە بنەڕەتییەکان")
+    await query.answer("الاوامر الاساسيه")
     await query.edit_message_text(
-        f"""🏮 فەرمانە بنەڕەتییەکان:
+        f"""🏮 الاوامر الاساسيه:
 
-» /play + 「ناوی گۆرانی/لینک」بۆ لێدانی گۆرانییەک لە چاتی دەنگیدا
-» /vplay + 「ناوی ڤیدیۆ / بەستەر 」 بۆ پەخشکردنی ڤیدیۆکە لەناو پەیوەندییەکەدا
-» /vstream 「 لینك 」 ڤیدیۆیەکی ڕاستەوخۆ لە یوتیوبەوە پەخش بکە
-» /playlist 「 پلەی لیست دەردەکەوێت」
-» /end 「بۆ تەواوکردنی مۆسیقا/ڤیدیۆ لە کۆلاج」
-» /song + 「ناو داگرتنی دەنگ لە youtube」
-» /vsong + 「ناو ڤیدیۆ لە youtube دابەزێنە」
-» /skip 「 بۆ پەڕینەوە بۆ گۆرانی دواتر 」
-» /ping 「دۆخی بۆت پیشان بدە」
+» /play +「اسم الأغنية / رابط」لتشغيل اغنيه في المحادثه الصوتيه
+» /vplay +「اسم الفيديو / رابط 」 لتشغيل الفيديو داخل المكالمة
+» /vstream 「رابط」 تشغيل فيديو مباشر من اليوتيوب
+» /playlist 「تظهر لك قائمة التشغيل」
+» /end「لإنهاء الموسيقى / الفيديو في الكول」
+» /song + 「الاسم تنزيل صوت من youtube」
+»/vsong + 「الاسم  تنزيل فيديو من youtube」
+» /skip「للتخطي إلى التالي」
+» /ping 「إظهار حالة البوت بينغ」
 » /uptime 「لعرض مده التشغيل للبوت」
-» /alive 「اظهار معلومات البوت(في المجموعه)」
-""",
+» /alive「اظهار معلومات البوت(في المجموعه)」
+⚡ قناة البوت @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
     )
 
@@ -127,40 +128,41 @@ async def cbbasic(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
-    await query.answer("فەرمانەکانی ئادەمین")
+    await query.answer("اوامر الادمنيه")
     await query.edit_message_text(
-        f"""🏮 لێرەدا فەرمانەکانی ئەدمین دەخەینەڕوو:
+        f"""🏮 هنا أوامر الادمنيه:
 
-» /pause 「وەستاندنی پەخشکردن」
-» /resume 「دەستپێکردنەوەی پەخشکردن」
-» /stop 「بۆ کوژانەوە」
-» /vmute 「بۆ بێدەنکردنی بۆتەکە」
-» /vunmute 「بۆ لابردنی بێدەنگی بۆتەکە」
-» /volume 「رێکخستنی قه باره ی ده نگ」
-» /reload 「بۆ نوێکردنەوەی بۆتەکە و لیستی ئەدمینەکان」
-» /userbotjoin 「بۆ بانگهێشتکردنی ئاکاونتی یارمەتیدەر」
-» /userbotleave 「بۆ دەرکردنی ئەکاونتی یارمەتیدەر」
-""",
+» /pause 「ايقاف التشغيل موقتآ」
+» /resume 「استئناف التشغيل」
+» /stop「لإيقاف التشغيل」
+» /vmute 「لكتم البوت」
+» /vunmute 「لرفع الكتم عن البوت」
+» /volume 「ضبط مستوئ الصوت」
+» /reload「لتحديث البوت و قائمة المشرفين」
+» /userbotjoin「لاستدعاء الحساب المساعد」
+» /userbotleave「لطرد الحساب المساعد」
+⚡ قناة البوت @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
     )
 
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
-    await query.answer("فەرمانەکانی گەشەپێدەر")
+    await query.answer("اوامر المطور")
     await query.edit_message_text(
-        f"""🏮 لێرەدا فەرمانەکانی گەشەپێدەر دەخەینەڕوو:
+        f"""🏮 هنا اوامر المطور:
 
-» /rmw「بۆ سڕینەوەی هەموو فایلەکان」
-» /rmd「هەموو فایلە دابەزێنراوەکان بسڕەوە」
-» /sysinfo「بۆ زانیاری سێرڤەر」
-» /update「نوێکردنەوە ي بۆتت بۆ ئاخر نسخ」
-» /restart「بۆتەکە دووبارە بوت بکەرەوە」
-» /leaveall「ده رچۆنی ئاکاونتی یارمه تیده ر له هه مو گروپه کانه وه」
-""",
+» /rmw「لحذف جميع الملفات 」
+» /rmd「حذف جميع الملفات المحمله」
+» /sysinfo「لمعرفه معلومات السيرفر」
+» /update「لتحديث بوتك لاخر نسخه」
+» /restart「اعاده تشغيل البوت」
+» /leaveall「خروج الحساب المساعد من جميع المجموعات」
+
+⚡ قناة البوت @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 گه رانه وه", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
     )
 
@@ -169,23 +171,23 @@ async def cbsudo(_, query: CallbackQuery):
 async def cbmenu(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 تەنها ئەو بەڕێوەبەرەی کە مۆڵەتی بەڕێوەبردنی چاتی دەنگی هەیە دەتوانێت کرتە لەم دوگمەیە بکات !", show_alert=True)
+        return await query.answer("💡 المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
     buttons = menu_markup(user_id)
     chat = query.message.chat.title
     if chat_id in QUEUE:
           await query.edit_message_text(
-              f"⚙️ **رێکخستنه کان** {query.message.chat.title}\n\n⏸ : ايقاف التشغيل موقتآ\n▶️ : استئناف التشغيل\n🔇 : كتم الصوت\n🔊 : الغاء كتم الصوت\n⏹ : ايقاف التشغيل",
+              f"⚙️ **الإعدادات** {query.message.chat.title}\n\n⏸ : ايقاف التشغيل موقتآ\n▶️ : استئناف التشغيل\n🔇 : كتم الصوت\n🔊 : الغاء كتم الصوت\n⏹ : ايقاف التشغيل",
               reply_markup=InlineKeyboardMarkup(buttons),
           )
     else:
-        await query.answer("❌ پلەی لیست بەتاڵە", show_alert=True)
+        await query.answer("❌ قائمة التشغيل فارغه", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 تەنها ئەو بەڕێوەبەرەی کە مۆڵەتی بەڕێوەبردنی چاتی دەنگی هەیە دەتوانێت کرتە لەم دوگمەیە بکات !", show_alert=True)
+        return await query.answer("💡 المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     await query.message.delete()
